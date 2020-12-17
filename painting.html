@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>paintings</title>
+	<link href="website.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header>
+		<h1>DAN ALMEIDA</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="about.html">ABOUT</a></li>
+			<li><a href="drawings.html">DRAWING</a></li>
+			<li><a href="digital.html">DIGITAL</a></li>
+		</ul>
+	</nav>
+	<main>
+		<img src="shoes.jpeg" onclick="openModal();currentSlide(1)" class="hover-shadow" height="72" alt="">
+	<img src="overunder.jpeg" onclick="openModal();currentSlide(2)" class="hover-shadow" height="72" alt="">
+		<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+  
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 2</div>
+      <img src="shoes.jpeg" height="600" alt="shoes">
+    </div>
+	  
+	
+	<div class="mySlides">
+      <div class="numbertext">2 / 2</div>
+      <img src="overunder.jpeg" height="600" alt="apples">
+    </div>
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+	</div>
+	</div>
+	</main>
+<footer>
+  <h6>email: daniella.almeida99@gmail.com</h6>
+	</footer>
+		<script>
+	// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+</body>
+</html>
